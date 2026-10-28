@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { products } from '../../data/products.js';
 import FormField from './FormField.jsx';
@@ -27,25 +27,15 @@ function validate(values) {
 
 export default function ContactForm({ endpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT }) {
   const [searchParams] = useSearchParams();
-  const productId = searchParams.get('product');
   const [values, setValues] = useState(() => getInitialValues(searchParams));
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    const selectedProduct = products.find((product) => product.id === productId);
-    if (selectedProduct) {
-      setValues((current) => ({
-        ...current,
-        subject: current.subject || `Enquiry about ${selectedProduct.name}`,
-      }));
-    }
-  }, [productId]);
-
   const updateValue = (event) => {
     const { name, value } = event.target;
+
     setValues((current) => ({ ...current, [name]: value }));
     setErrors((current) => ({ ...current, [name]: undefined }));
     setStatus('idle');

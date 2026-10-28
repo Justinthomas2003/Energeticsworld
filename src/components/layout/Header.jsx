@@ -11,15 +11,29 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
 
-  useEffect(() => setMenuOpen(false), [pathname]);
+  const [menuRoute, setMenuRoute] = useState(pathname);
+  const isMenuOpen = menuRoute === pathname && menuOpen;
+
+  const toggleMenu = () => {
+    if (menuRoute !== pathname) {
+      setMenuRoute(pathname);
+      setMenuOpen(true);
+      return;
+    }
+
+    setMenuOpen((open) => !open);
+  };
+
+  const closeMenu = () => setMenuOpen(false);
+
   useEffect(() => {
-    if (!menuOpen) return undefined;
+    if (!isMenuOpen) return undefined;
     const closeOnEscape = (event) => {
-      if (event.key === 'Escape') setMenuOpen(false);
+      if (event.key === 'Escape') closeMenu();
     };
     document.addEventListener('keydown', closeOnEscape);
     return () => document.removeEventListener('keydown', closeOnEscape);
-  }, [menuOpen]);
+  }, [isMenuOpen]);
 
   return (
     <header className="site-header">
@@ -35,7 +49,7 @@ export default function Header() {
             aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
-            onClick={() => setMenuOpen((open) => !open)}
+            onClick={toggleMenu}
           >
             {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
           </button>
