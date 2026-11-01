@@ -1,27 +1,31 @@
 # EnergeticsWorld — React Website Redesign
 
-A responsive frontend redesign of the Energetics World website, migrating the existing HTML-based website into a component-based React application.
+A responsive React-based frontend redesign of the Energetics World website, inspired by Energetics Eco Technologies LLP.
+
+## Live Demo
+
+**Website:** https://energeticsworld.vercel.app
+
+**GitHub Repository:** https://github.com/Justinthomas2003/Energeticsworld
 
 ## Overview
 
-EnergeticsWorld is a frontend project inspired by the website of Energetics Eco Technologies LLP, an energy solutions company focused on solar energy products and services.
+EnergeticsWorld is a frontend redesign project that transforms an existing HTML-based website into a component-based React application.
 
-The project uses reusable React components, organized pages, and shared content modules to improve maintainability, navigation, and user experience.
+The application uses reusable components, organized pages, and structured content to improve maintainability, navigation, and user experience.
 
 ## Features
 
 - Home, About, Services, Products, and Contact pages
-- Reusable navigation, header, footer, and UI components
+- Reusable React components
 - Product search and filtering interfaces
 - Product and service detail pages
 - Contact form with input validation
 - FAQ accordion
 - Theme toggle
 - Responsive layouts
-- Custom not-found page
 - Client-side routing
-
-*Confirm each feature works in the deployed version before presenting it as complete.*
+- Custom not-found page
 
 ## Technology Stack
 
@@ -32,7 +36,7 @@ The project uses reusable React components, organized pages, and shared content 
 - CSS
 - Lucide React
 - ESLint 10
-- Vercel deployment configuration
+- Vercel
 
 ## Project Structure
 
@@ -40,18 +44,9 @@ The project uses reusable React components, organized pages, and shared content 
 EnergeticsWorld/
 ├── public/
 │   └── images/
-│       ├── logo/
-│       ├── products/
-│       ├── reference/
-│       └── services/
 ├── src/
 │   ├── assets/
 │   ├── components/
-│   │   ├── common/
-│   │   ├── forms/
-│   │   ├── layout/
-│   │   ├── products/
-│   │   └── services/
 │   ├── context/
 │   ├── data/
 │   ├── hooks/
@@ -62,6 +57,10 @@ EnergeticsWorld/
 │   ├── index.css
 │   ├── main.jsx
 │   └── styles.css
+├── .github/
+│   └── workflows/
+├── docs/
+│   └── screenshots/
 ├── .env.example
 ├── .gitignore
 ├── index.html
@@ -76,7 +75,7 @@ EnergeticsWorld/
 
 ### Prerequisites
 
-- Node.js
+- Node.js 22 or later
 - npm
 - Git
 
@@ -88,7 +87,7 @@ cd Energeticsworld
 npm install
 ```
 
-### Development
+### Development Server
 
 ```bash
 npm run dev
@@ -107,38 +106,34 @@ npm run preview
 npm run lint
 ```
 
-The production build is generated in the `dist/` directory.
+## CI Workflow
 
-## Live Demo
+GitHub Actions automatically verifies the project on pushes and pull requests to the main branch.
 
-**Live website:** Add the verified deployment URL here after deploying.
+The workflow performs:
+
+- Dependency installation
+- ESLint checks
+- Production build verification
 
 ## Screenshots
 
-Add screenshots of the finished website to a `docs/screenshots/` folder and link them here.
+Add screenshots to `docs/screenshots/` and display them below.
 
-Suggested screenshots:
-- Home page
-- About page
-- Services page
-- Products page
-- Contact page
-- Mobile layout
+<!-- Add screenshot links after capturing the actual images. -->
 
 ## Reference Website
 
-The redesign uses the existing Energetics World website as a reference:
-
 https://energeticsworld.com/about-us.html
 
-This is a frontend redesign project and should not be interpreted as an official company website unless authorized.
+This is an independent frontend redesign project and is not presented as the official company website.
 
 ## Author
 
 **Justin Sebastian Thomas**
 
-GitHub: https://github.com/Justinthomas2003
+[GitHub Profile](https://github.com/Justinthomas2003)
 
 ## License
 
-No license has been specified yet. Add a license if you intend to permit reuse or redistribution.
+No license has been specified. Reuse and redistribution permissions have not been granted.
